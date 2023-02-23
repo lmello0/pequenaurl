@@ -1,0 +1,30 @@
+<%- include ('partials/head') %>
+
+<body>
+    <div class="container-lg h-100 text-center">
+        <div class="align-items-center justify-content-center h-100">
+            <h1 class="fs-1 fw-bold py-5"><a class="text-decoration-none text-black" href="/">Pequena URL</a></h1>
+
+            <form method="POST" action="/shortner" class="container-fluid py-5 w-50">
+                <div class="input-group">
+                    <input type="text" name="longUrl" class="form-control" placeholder="URL">
+                    <button class="btn btn-success" type="submit">></button>
+                </div>
+            </form>
+
+            <% if (newUrl) { %>
+                <div class="container-fluid py-5 w-50">
+                    <div class="card">
+                        <div class="card-header">Nova URL</div>
+                        <div class="card-body">
+                            <a class="card-text text-decoration-none" href="<%= newUrl %>">localhost:3000/<%= newUrl %></a>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+
+        </div>
+    </div>
+</body>
+
+<%- include ('partials/script') %>

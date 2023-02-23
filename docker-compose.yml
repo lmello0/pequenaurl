@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  app:
+    image: pequenaurl
+    container_name: pequenaurl-webserver
+    restart: always
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongo
+    environment:
+      - MONGODB_URL=mongodb://mongo:27017/pequenaurl
+
+  mongo:
+    image: mongo
+    container_name: pequenaurl-mongo
+    restart: always
+    environment:
+      - MONGOINITDB_DATABASE=pequenaurl
