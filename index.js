@@ -1,13 +1,14 @@
+// module imports
 const express = require('express');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const generateShortUrl = require('./public/pages/functions');
 const URL = require('./models/URL');
 
-const DOMAIN = 'localhost:3000/'
-
+// initialize express
 const app = express();
 
+// set up middleware
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -22,7 +23,6 @@ app.use(session({
 app.use(express.static('public'));
 
 // routes
-
 app.get('/', (req, res) => {
     let url = req.session.url;
     req.session.url = null;
